@@ -231,7 +231,20 @@ input[type=number].input_noSpinners {
     background: $wcolor;
     line-height: 50px;
     padding: 10px 0;
+    text-align: right;
 
+    .navbar-nav{
+      li{
+        a{
+          font-weight: 500;
+          text-transform: uppercase;
+          &:hover{
+            background: transparent;
+            color: $bcolor;
+          }
+        }
+      }
+    }
     .mobile-nav-icon{
       a{
         color: $bcolor;
@@ -257,48 +270,6 @@ input[type=number].input_noSpinners {
         padding: 6px 15px;
       }
     }
-
-    .vision-cart-icon{
-      text-align: center;
-
-      a{
-        color: $bcolor;
-        font-size: 30px;
-
-        .badge{
-          position: absolute;
-          top: 6px;
-          right: 20px;
-          background: $theme-color;
-          color: $wcolor;
-        }
-      }
-    }
-
-    .mbl-search-box{
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 55px;
-      background: $wcolor;
-      display: none;
-      line-height: 20px;
-      padding: 11px 5px;
-
-      .form-control{
-        border: 0;
-        @include border-radius(0);
-        @include box-shadow(none);
-      }
-      button{
-        background: $wcolor;
-        border: 0;
-        @include box-shadow(none);
-        @include border-radius(0);
-        outline: 0;
-      }
-    }
   }
 }
 
@@ -312,90 +283,7 @@ input[type=number].input_noSpinners {
 }
 
 // CSS For Sidemenu
-.sidebar-wrapper{
-  width: auto;
-  height: 100%;
-  z-index: 12;
-  position: fixed;
-  left: -500px;
-  @include transition(all,.4s,ease);
-}
-.menu-sidenav{
-  width: 230px;
-  height: 100%;
-  background: $wcolor;
-  border-right: 1px solid #ddd;
-  box-shadow: 0px 0px 2px #ddd;
-  overflow-x: hidden;
 
-  .sidemenu-header{
-    padding: 5px 10px;
-    text-align: right;
-
-    a{font-size: 20px;}
-  }
-
-  .sidenav-menu-link{
-    padding-top: 10px;
-    padding-left: 20px;
-    padding-right: 20px;
-
-    ul li{margin-bottom: 25px;}
-
-    a{
-      color: #000;
-      text-transform: capitalize;
-      @include transition(all,.4s,ease);
-
-      &:hover{color: #757575;}
-
-      span{
-        float: right;
-      font-size: 20px;
-      color: #000;
-      line-height: 16px;
-      text-align: center;
-      }
-    }
-
-    .second-category{margin-left: 10px;}
-
-    .third-category{margin-left: 10px;}
-  }
-
-  hr{
-    border-top: 1px solid #ddd;
-    margin-top: 10px;
-    margin-bottom: 10px;
-  }
-    
-  .sidenav-menu-account{
-    padding-left: 20px;
-    ul li{margin-bottom: 15px;}
-    a{color:$bcolor;}
-  }
-
-  .sidenav-menu-social{
-    padding-top: 30px;
-    padding-left: 20px;
-    padding-right: 20px;
-
-    ul li{
-      margin-bottom: 25px;
-      float: left;
-    }
-
-    a{
-      color: #000;
-      font-size: 22px;
-        margin-right: 20px;
-      text-transform: capitalize;
-      @include transition(all,.4s,ease);
-
-      &:hover{color: #757575;}
-    }
-  }
-}
 
 // ************************************
 

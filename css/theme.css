@@ -105,7 +105,14 @@ input[type=number].input_noSpinners {
   height: 72px;
   background: #fff;
   line-height: 50px;
-  padding: 10px 0; }
+  padding: 10px 0;
+  text-align: right; }
+  .header .action-bar .navbar-nav li a {
+    font-weight: 500;
+    text-transform: uppercase; }
+    .header .action-bar .navbar-nav li a:hover {
+      background: transparent;
+      color: #000; }
   .header .action-bar .mobile-nav-icon a {
     color: #000;
     font-size: 20px; }
@@ -131,47 +138,6 @@ input[type=number].input_noSpinners {
     color: #fff;
     margin-top: -5px;
     padding: 6px 15px; }
-  .header .action-bar .vision-cart-icon {
-    text-align: center; }
-    .header .action-bar .vision-cart-icon a {
-      color: #000;
-      font-size: 30px; }
-      .header .action-bar .vision-cart-icon a .badge {
-        position: absolute;
-        top: 6px;
-        right: 20px;
-        background: #FF6C37;
-        color: #fff; }
-  .header .action-bar .mbl-search-box {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 55px;
-    background: #fff;
-    display: none;
-    line-height: 20px;
-    padding: 11px 5px; }
-    .header .action-bar .mbl-search-box .form-control {
-      border: 0;
-      -webkit-border-radius: 0;
-      -moz-border-radius: 0;
-      -ms-border-radius: 0;
-      border-radius: 0;
-      -moz-box-shadow: none;
-      -webkit-box-shadow: none;
-      box-shadow: none; }
-    .header .action-bar .mbl-search-box button {
-      background: #fff;
-      border: 0;
-      -moz-box-shadow: none;
-      -webkit-box-shadow: none;
-      box-shadow: none;
-      -webkit-border-radius: 0;
-      -moz-border-radius: 0;
-      -ms-border-radius: 0;
-      border-radius: 0;
-      outline: 0; }
 
 .fixed-nav {
   position: fixed;
@@ -182,86 +148,6 @@ input[type=number].input_noSpinners {
   -moz-box-shadow: 0 3px 2px #ddd;
   -webkit-box-shadow: 0 3px 2px #ddd;
   box-shadow: 0 3px 2px #ddd; }
-
-.sidebar-wrapper {
-  width: auto;
-  height: 100%;
-  z-index: 12;
-  position: fixed;
-  left: -500px;
-  -webkit-transition: all 0.4s ease;
-  -moz-transition: all 0.4s ease;
-  -ms-transition: all 0.4s ease;
-  -o-transition: all 0.4s ease;
-  transition: all 0.4s ease; }
-
-.menu-sidenav {
-  width: 230px;
-  height: 100%;
-  background: #fff;
-  border-right: 1px solid #ddd;
-  box-shadow: 0px 0px 2px #ddd;
-  overflow-x: hidden; }
-  .menu-sidenav .sidemenu-header {
-    padding: 5px 10px;
-    text-align: right; }
-    .menu-sidenav .sidemenu-header a {
-      font-size: 20px; }
-  .menu-sidenav .sidenav-menu-link {
-    padding-top: 10px;
-    padding-left: 20px;
-    padding-right: 20px; }
-    .menu-sidenav .sidenav-menu-link ul li {
-      margin-bottom: 25px; }
-    .menu-sidenav .sidenav-menu-link a {
-      color: #000;
-      text-transform: capitalize;
-      -webkit-transition: all 0.4s ease;
-      -moz-transition: all 0.4s ease;
-      -ms-transition: all 0.4s ease;
-      -o-transition: all 0.4s ease;
-      transition: all 0.4s ease; }
-      .menu-sidenav .sidenav-menu-link a:hover {
-        color: #757575; }
-      .menu-sidenav .sidenav-menu-link a span {
-        float: right;
-        font-size: 20px;
-        color: #000;
-        line-height: 16px;
-        text-align: center; }
-    .menu-sidenav .sidenav-menu-link .second-category {
-      margin-left: 10px; }
-    .menu-sidenav .sidenav-menu-link .third-category {
-      margin-left: 10px; }
-  .menu-sidenav hr {
-    border-top: 1px solid #ddd;
-    margin-top: 10px;
-    margin-bottom: 10px; }
-  .menu-sidenav .sidenav-menu-account {
-    padding-left: 20px; }
-    .menu-sidenav .sidenav-menu-account ul li {
-      margin-bottom: 15px; }
-    .menu-sidenav .sidenav-menu-account a {
-      color: #000; }
-  .menu-sidenav .sidenav-menu-social {
-    padding-top: 30px;
-    padding-left: 20px;
-    padding-right: 20px; }
-    .menu-sidenav .sidenav-menu-social ul li {
-      margin-bottom: 25px;
-      float: left; }
-    .menu-sidenav .sidenav-menu-social a {
-      color: #000;
-      font-size: 22px;
-      margin-right: 20px;
-      text-transform: capitalize;
-      -webkit-transition: all 0.4s ease;
-      -moz-transition: all 0.4s ease;
-      -ms-transition: all 0.4s ease;
-      -o-transition: all 0.4s ease;
-      transition: all 0.4s ease; }
-      .menu-sidenav .sidenav-menu-social a:hover {
-        color: #757575; }
 
 /* CSS For Home Slider Section */
 .hslider #myCarousel .carousel-caption {
