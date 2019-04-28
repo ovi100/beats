@@ -1,0 +1,153 @@
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+/* 
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+  .header .action-bar {
+    height: 58px;
+    line-height: 58px;
+    text-align: center; }
+    .header .action-bar .logo img {
+      margin: auto; }
+    .header .action-bar .search-box {
+      text-align: center; }
+    .header .action-bar .vision-cart-icon a {
+      font-size: 20px; }
+
+  .payment-social .payment-icon ul li {
+    margin-bottom: 5px; }
+
+  .categories-hslider .homecategory {
+    display: none; }
+  .categories-hslider .carousel-fade .carousel-indicators {
+    display: none; }
+
+  .product-box .product-name {
+    height: 60px; }
+  .product-box .product-button {
+    display: none; }
+  .product-box:hover {
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none; }
+
+  .catalog .catalog-filter {
+    position: fixed;
+    top: 0;
+    right: -230px;
+    width: 225px;
+    height: 100%;
+    background: #fff;
+    border-right: 1px solid #ddd;
+    overflow-y: auto;
+    padding: 0 10px;
+    -webkit-transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    -ms-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+    z-index: 12; }
+    .catalog .catalog-filter .filter-header {
+      padding: 10px;
+      text-align: right; }
+  .catalog .catalog-sort {
+    border-top: 1px solid #ddd; }
+    .catalog .catalog-sort .product-info {
+      text-align: center; }
+    .catalog .catalog-sort .mbl-filter i {
+      font-size: 20px; }
+
+  .product-details .product-info .product-text {
+    padding: 0 5px; } }
+@media only screen and (min-width: 481px) and (max-width: 767px) {
+  .vision-header .vision-action-bar .vision-logo img {
+    max-height: 40px; } }
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  .sidebar-wrapper {
+    width: auto; }
+
+  .vision-header .vision-action-bar {
+    height: 65px; }
+    .vision-header .vision-action-bar .mobile-nav-icon {
+      margin-top: -6px; }
+
+  .payment-social .payment-icon ul li {
+    margin-bottom: 5px; }
+
+  .categories-hslider .homecategory {
+    display: none; }
+  .categories-hslider .carousel-fade .carousel-indicators {
+    display: none; }
+
+  .catalog .catalog-filter {
+    position: fixed;
+    top: 0;
+    right: -230px;
+    width: 225px;
+    height: 100%;
+    background: #fff;
+    border-right: 1px solid #ddd;
+    overflow-y: auto;
+    padding: 0 10px;
+    -webkit-transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    -ms-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+    z-index: 12; }
+    .catalog .catalog-filter .filter-header {
+      padding: 10px;
+      text-align: right; }
+  .catalog .catalog-sort {
+    border-top: 1px solid #ddd; }
+    .catalog .catalog-sort .product-info {
+      text-align: left; }
+    .catalog .catalog-sort .mbl-filter i {
+      font-size: 20px; }
+
+  .product-details .product-info .product-text {
+    padding: 5px; } }
+@media only screen and (max-width: 1024px) {
+  .categories-hslider .homecategory {
+    left: 0;
+    height: auto;
+    padding: 0; }
+    .categories-hslider .homecategory ul li {
+      height: auto;
+      line-height: unset; } }
+@media only screen and (max-width: 1920px) {
+  .categories-hslider .homecategory {
+    top: 96px;
+    left: 387px;
+    height: 488px; }
+    .categories-hslider .homecategory ul li {
+      height: 30px;
+      line-height: 30px; } }
+@media only screen and (max-width: 1440px) {
+  .categories-hslider .homecategory {
+    left: 145px;
+    height: auto; }
+    .categories-hslider .homecategory ul li {
+      height: 26px; } }
+
+/*# sourceMappingURL=mediaqueries.css.map */

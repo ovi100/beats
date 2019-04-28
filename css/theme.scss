@@ -1,0 +1,964 @@
+
+// Custom Fonts
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,700');
+
+$theme-font: 'Poppins', sans-serif;
+$theme-color:#FF6C37;
+$bcolor:#000;
+$wcolor:#fff;
+$gcolor:#808080;
+$grcolor:#41a30d;
+
+// Start Sass Mixins
+
+@mixin animation($avalue) {
+  -webkit-animation: #{$avalue};
+  -moz-animation: #{$avalue};
+  -o-animation: #{$avalue};
+  animation: #{$avalue};
+}
+
+@mixin border-radius($radius) {
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	-ms-border-radius: $radius;
+	border-radius: $radius; 
+}
+
+@mixin border-radius-s($tl, $tr, $br, $bl) {
+	border-top-left-radius: $tl;
+	border-top-right-radius: $tr;
+	border-bottom-right-radius: $br;
+	border-bottom-left-radius: $bl;
+	-webkit-border-top-left-radius: $tl;
+	-webkit-border-top-right-radius: $tr;
+	-webkit-border-bottom-right-radius: $br;
+	-webkit-border-bottom-left-radius: $bl;
+	-moz-border-radius-topleft: $tl;
+	-moz-border-radius-topright: $tr;
+	-moz-border-radius-bottomright: $br;
+	-moz-border-radius-bottomleft: $bl;
+  -ms-border-radius-topleft: $tl;
+  -ms-border-radius-topright: $tr;
+  -ms-border-radius-bottomright: $br;
+  -ms-border-radius-bottomleft: $bl;
+}
+
+@mixin box-shadow($shadows...) {
+  -moz-box-shadow: $shadows;
+  -webkit-box-shadow: $shadows;
+  box-shadow: $shadows;
+}
+
+@mixin keyframes($aname) {
+  @-webkit-keyframes #{$aname} {
+    @content;
+  }
+  @-o-keyframes #{$aname} {
+    @content;
+  }
+  @-moz-keyframes #{$aname} {
+    @content;
+  }
+  @keyframes #{$aname} {
+    @content;
+  }
+}
+
+@mixin linear-gradient($sc,$sp,$ec,$ep:null) {
+  /* fallback/image non-cover color */
+  background: $sc;
+
+  /* Firefox 3.6+ */
+  background: -moz-linear-gradient(left, $sc $sp, $ec $ep);
+
+  /* Safari 4+, Chrome 1+ */
+  background: -webkit-gradient(linear, left top, right top, color-stop($sp, $sc), color-stop($ep, $ec));
+
+  /* Safari 5.1+, Chrome 10+ */
+  background: -webkit-linear-gradient(left, $sc $sp, $ec $ep);
+
+  /* Opera 11.10+ */
+  background: -o-linear-gradient(left, $sc $sp, $ec $ep);
+
+  /* IE10+ */
+  background: -ms-linear-gradient(left, $sc $sp, $ec $ep);
+
+  /* Standard */
+  background: linear-gradient(to right, $sc $sp, $ec $ep);
+
+  /* IE6-9 */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$sc', endColorstr='$ec',GradientType=1 );
+}
+
+@mixin opacity($value){
+  $IEValue: $value*100;
+  opacity: $value;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity="+$IEValue+")";
+  filter: alpha(opacity=$IEValue);
+}
+
+@mixin placeholder {
+  &.placeholder { @content }
+  &:-moz-placeholder { @content }
+  &::-webkit-input-placeholder { @content }
+}
+
+@mixin scale ($svalue) {
+	@include transform(scale($svalue));
+}
+
+@mixin rotate ($deg) {
+	@include transform(rotate(#{$deg}deg));
+}
+
+@mixin transition($property,$time,$effect){
+	-webkit-transition: $property $time $effect;
+	-moz-transition: $property $time $effect;
+  	-ms-transition: $property $time $effect;
+	-o-transition: $property $time $effect;
+  	transition: $property $time $effect;
+}
+
+@mixin transform($transforms) {
+	-webkit-transform: $transforms;
+  -moz-transform: $transforms;
+  -o-transform: $transforms;
+  -ms-transform: $transforms;
+  transform: $transforms;
+}
+
+@mixin translate ($x,$y) {
+	@include transform(translate($x,$y));
+}
+
+// *********************************************
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; 
+}
+
+html {overflow-x: hidden;}
+
+body {
+	background: #fff;
+  color: #333;
+  font-family:$theme-font;
+}
+
+ul li {list-style: none;}
+
+.dropdown:hover>.dropdown-menu{
+	display:block;
+}
+
+a{
+	color:$bcolor;
+
+	&:hover, &:visited, &:focus {
+    background-color: transparent;
+  	text-decoration: none;
+		outline: 0;
+	}
+}
+
+.zoomIn:hover{
+	@include scale(1.2);
+	@include transition(all,0.8s,ease);
+}
+
+.tbtn{
+  font-size: 13px;
+  padding: 5px 20px;
+  text-align: center;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+
+.btn-fill{
+	background: $theme-color;
+  border: 1px solid $theme-color;
+  @include border-radius(2px);
+  color: $wcolor;
+  @include opacity(1);
+  @include transition(all,0.5s,ease);
+
+  &:hover{
+    background: $theme-color;
+    border: 1px solid $theme-color;
+    color: $wcolor;
+  	@include opacity(0.8);
+  }
+}
+
+.btn-outline{
+	background: transparent;
+  border: 1px solid #b5b5b5;
+  color: #757575;
+  @include transition(all,0.4s,ease-in);
+
+  &:hover{
+  	background: #757575;
+  	border: 1px solid #b5b5b5;
+  	color: $wcolor !important;
+  }
+}
+
+.tcolor{color:$theme-color !important;}
+
+input[type=number].input_noSpinners::-webkit-inner-spin-button,
+input[type=number].input_noSpinners::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none;
+  margin: 0;
+}
+input[type=number].input_noSpinners {
+  -moz-appearance: textfield;
+}
+
+.br-0{border-right: 0;}
+.bl-0{border-left: 0;}
+
+
+// CSS For Header Section
+
+.header{
+  .action-bar{
+    height: 72px;
+    background: $wcolor;
+    line-height: 50px;
+    padding: 10px 0;
+
+    .mobile-nav-icon{
+      a{
+        color: $bcolor;
+        font-size: 20px;
+      }
+    }
+
+    .search-box{
+      .form-control{
+        height:45px;
+        background: #eaeaea;
+        @include box-shadow(none);
+        border: 1px solid #eaeaea;
+        @include border-radius(0);
+      }
+      button{
+        height: 45px;
+        background: $theme-color;
+        border: 1px solid $theme-color;
+        @include border-radius(0);
+        color: $wcolor;
+        margin-top: -5px;
+        padding: 6px 15px;
+      }
+    }
+
+    .vision-cart-icon{
+      text-align: center;
+
+      a{
+        color: $bcolor;
+        font-size: 30px;
+
+        .badge{
+          position: absolute;
+          top: 6px;
+          right: 20px;
+          background: $theme-color;
+          color: $wcolor;
+        }
+      }
+    }
+
+    .mbl-search-box{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 55px;
+      background: $wcolor;
+      display: none;
+      line-height: 20px;
+      padding: 11px 5px;
+
+      .form-control{
+        border: 0;
+        @include border-radius(0);
+        @include box-shadow(none);
+      }
+      button{
+        background: $wcolor;
+        border: 0;
+        @include box-shadow(none);
+        @include border-radius(0);
+        outline: 0;
+      }
+    }
+  }
+}
+
+.fixed-nav{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  @include box-shadow(0 3px 2px #ddd);
+}
+
+// CSS For Sidemenu
+.sidebar-wrapper{
+  width: auto;
+  height: 100%;
+  z-index: 12;
+  position: fixed;
+  left: -500px;
+  @include transition(all,.4s,ease);
+}
+.menu-sidenav{
+  width: 230px;
+  height: 100%;
+  background: $wcolor;
+  border-right: 1px solid #ddd;
+  box-shadow: 0px 0px 2px #ddd;
+  overflow-x: hidden;
+
+  .sidemenu-header{
+    padding: 5px 10px;
+    text-align: right;
+
+    a{font-size: 20px;}
+  }
+
+  .sidenav-menu-link{
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    ul li{margin-bottom: 25px;}
+
+    a{
+      color: #000;
+      text-transform: capitalize;
+      @include transition(all,.4s,ease);
+
+      &:hover{color: #757575;}
+
+      span{
+        float: right;
+      font-size: 20px;
+      color: #000;
+      line-height: 16px;
+      text-align: center;
+      }
+    }
+
+    .second-category{margin-left: 10px;}
+
+    .third-category{margin-left: 10px;}
+  }
+
+  hr{
+    border-top: 1px solid #ddd;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+    
+  .sidenav-menu-account{
+    padding-left: 20px;
+    ul li{margin-bottom: 15px;}
+    a{color:$bcolor;}
+  }
+
+  .sidenav-menu-social{
+    padding-top: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    ul li{
+      margin-bottom: 25px;
+      float: left;
+    }
+
+    a{
+      color: #000;
+      font-size: 22px;
+        margin-right: 20px;
+      text-transform: capitalize;
+      @include transition(all,.4s,ease);
+
+      &:hover{color: #757575;}
+    }
+  }
+}
+
+// ************************************
+
+/* CSS For Home Slider Section */
+.hslider{
+  #myCarousel{
+    .carousel-caption{
+      left: -55%;
+      bottom: 75px;
+    }
+  }
+  .carousel-fade{
+    .carousel-indicators{
+      bottom: -5px;
+      z-index: 2;
+
+      li{
+        width: 12px;
+        height: 12px;
+        background-color: #ddd;
+        border: 1px solid #ddd;
+        @include border-radius(12px);
+      }
+
+      .active{
+        width: 12px;
+        height: 12px;
+        background-color: $wcolor;
+        border: 1px solid $wcolor;
+        margin: 1px;
+      }
+    }
+
+    .carousel-inner{
+      .item{
+        @include transition(all,0.5s,ease-in);
+      }
+        
+      .item,
+      .active.left,
+      .active.right{
+        opacity: 0.5;
+      }
+
+      .active,
+      .next.left,
+      .prev.right {
+        opacity: 1;
+      }
+
+      .next,
+      .prev,
+      .active.left,
+      .active.right {
+        left: 0;
+        transform: translate3d(0, 0, 0);
+      }
+    }
+
+    .carousel-control {
+        z-index: 2;
+    }
+  }
+}
+// ************************************
+
+// CSS For Product Box Page
+.product-box{
+  height: auto;
+  padding-bottom: 10px;
+  .product-photo{margin-bottom: 15px;}
+  .product-tag{
+    position: absolute;
+    top: 5px;
+    left: 25px;
+    right: 25px;
+
+    span{
+      background: $theme-color;
+      color: $wcolor;
+      font-size: 11px;
+      padding: 2px 5px;
+      text-transform: uppercase;
+    }
+  }
+  .product-name{
+    height: 45px;
+    padding: 0 8px;
+
+    a{
+      color: #787a6c;
+      font-size: 13px;
+      @include transition(all,0.5s,ease);
+
+      &:hover{
+        color: $theme-color;
+      }
+    }
+  }
+  .product-price{
+    padding: 0 8px;
+
+    span{
+      color: $theme-color;
+      font-size: 18px;
+    }
+  }
+  .discount-price{
+    color: #757575;
+    font-size: 10px;
+    padding: 0 8px;
+  }
+  .product-rating{
+    margin: 8px 0;
+    padding: 0 8px;
+
+    i{color: #ffd700;}
+  }
+  .product-button{
+    padding: 0 8px;
+    visibility: hidden;
+  }
+
+  &:hover{
+    @include box-shadow(0 0 2px #ddd);
+
+    .product-button{
+      visibility: visible;
+    }
+  }
+}
+// ************************************
+
+// CSS For Feature Product Section
+
+.feature-product{
+  padding: 2% 0;
+  .fp-header{
+    color: #757575;
+    margin-bottom: 25px;
+    text-align: center;
+  }
+  .row{margin-bottom: 10px;}
+}
+
+// ************************************
+
+// CSS For Footer Section
+
+.vision-footer{
+  background: #2F3353;
+  color: $wcolor;
+  padding: 10px 0;
+
+  .quick-link{
+    a{
+      color: $wcolor;
+      text-transform: capitalize;
+
+      &:hover{text-decoration: underline;}
+    }
+  }
+
+  .newsletter{
+    .form-control{
+      background: transparent;
+      border: 1px solid #fff;
+      border-right: 0;
+      @include border-radius(0);
+      @include box-shadow(none);
+      color: $wcolor;
+
+      @include placeholder{
+        color: $wcolor;
+      }
+    }
+    button{
+      background: transparent;
+      border-color: $wcolor;
+      border-left: 0;
+      @include border-radius(0);
+      @include box-shadow(none);
+      color: $wcolor;
+    }
+  }
+}
+
+.payment-social{
+  .payment-icon{
+    ul{
+      li{
+        display: inline-block;
+        margin-right: 5px;
+      }
+    }
+  }
+  .social-icon{
+    ul{
+      li{
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        display: inline-block;
+        line-height: 35px;
+        margin-right: 5px;
+        text-align: center;
+
+        a{font-size: 18px;}
+      }
+
+      .fb{
+        border: 2px solid #3b5998;
+        a{color: #3b5998;}
+      }
+      .tw{
+        border: 2px solid #1da1f2;
+        a{color: #1da1f2;}
+      }
+      .ins{
+        border: 2px solid #e1306c;
+        a{color: #e1306c;}
+      }
+      .yt{
+        border: 2px solid #ff0000;
+        a{color: #ff0000;}
+      }
+    }
+  }
+}
+
+.copy-right{
+  padding: 10px 0;
+  text-align: center;
+}
+
+// ************************************
+
+// CSS For Catalog Page
+
+.catalog{
+  padding: 2% 0;
+  
+  .row{
+    .col-lg-2{padding-right: 0;}
+  }
+  .catalog-filter{
+    .filter{
+      border-bottom: 1px solid #ddd;
+      margin-top: 15px;
+      
+      .filter-name{
+        font-size: 15px;
+        text-transform: capitalize;
+      }
+      .filter-option{
+        max-height: 162px;
+        min-height: 50px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        .checkbox{
+          label{color: #757575;}
+          
+        }
+
+        .form-inline{
+          margin-top: 5px;
+          .form-control{
+            width: 45%;
+            height: 30px;
+            border-radius: 3px;
+            box-shadow: none;
+          }
+        }
+
+        .col-xs-3{padding-left: 0;}
+
+        button{
+          font-size: 20px;
+          margin-top: 5px;
+          padding: 0px 8px;
+        }
+      }
+    }
+  }
+
+  .catalog-sort{
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
+    padding: 15px 0;
+
+    .sort-option{
+      .dropdown{
+        button{
+          @include border-radius(0);
+          &:hover{background: $wcolor;}
+        }
+        .dropdown-menu{
+          left: -23px;
+          @include border-radius(0);
+        }
+      }
+    }
+  }
+  .catalog-product{
+    .row{margin-bottom: 10px;}
+  }
+}
+
+// ************************************
+
+
+// CSS For Cart Page
+.cart{
+  background: #f7f7f7;
+  .cart-header{
+    background: #eaeaea;
+    color: #999;
+    padding: 10px;
+  }
+  .cart-item{
+    background: $wcolor;
+    @include box-shadow(0 0 2px #f5f5f5);
+    margin: 15px 0;
+
+    h4{
+      border-bottom: 1px solid #ddd;
+      padding: 10px;
+    }
+
+    .item-info{
+      padding: 10px;
+
+      .item-price{
+        color: $theme-color;
+        font-size: 17px;
+      }
+
+      .input-group{
+        span{
+          background: #f3f3f3;
+          border: 0;
+          @include border-radius(0);
+          color: #afaaaa;
+          cursor: pointer;
+          font-size: 20px;
+
+          &:hover{
+            background: #ddd;
+            color: $wcolor;
+            @include transition(all,0.4s,ease);
+          }
+        }
+        .form-control{
+          border: 0;
+          @include box-shadow(none);
+          text-align: center;
+
+          &:hover{
+            border: 1px solid #ddd;
+            @include transition(all,0.4s,ease);
+          }
+        }
+      }
+
+      .stock{margin-top: 5px;}
+
+      .item-icon{
+        margin-top: 10px;
+        button{
+          background: transparent;
+          border: 0;
+          color: #666;
+          font-size: 14px;
+        }
+
+        a{
+          color: #666;
+          font-size: 15px;
+          padding-right: 7px;
+
+          &:hover{color: $theme-color;}
+        }
+      }
+    }
+  }
+
+  .cart-summary{
+    background: $wcolor;
+    padding: 10px;
+
+    .order-price {
+      border-bottom: 1px solid #ddd;
+      margin: 15px 0;
+      padding-bottom: 5px;
+    }
+
+    .order-checkout{
+      a{padding: 10px 20px;}
+    }
+  }
+}
+
+// ************************************
+
+// CSS For Product Page
+.product-details{
+  background: #EEF0F4;
+  padding: 10px 0;
+  .breadcrumb{
+    background: transparent;
+
+    li + li:before {
+      padding: 0 5px;
+      color: #ccc;
+      content: "\eab8";
+      font-family: IcoFont;
+    }
+  }
+  .product-info{
+    background: $wcolor;
+    @include box-shadow(0 0 2px #ddd);
+
+    .product-text{
+      .p-name{margin-bottom: 0;}
+      .share-option{
+        border-bottom: 1px solid #ddd;
+        padding: 10px 0;
+        i{
+          color: #ffd700;
+          font-size: 10px;
+        }
+
+        .rating{
+          color: #0cbdbd;
+          font-size: 10px;
+        }
+
+        a{
+          color: #ababab;
+          padding: 0 5px;
+        }
+      }
+      .variant-list{
+        padding: 5px 0;
+        ul{
+          li{
+            display: inline-block;
+            margin-right: 7px;
+            
+            a{
+              border: 1px solid $theme-color;
+              color: $bcolor;
+              padding: 4px 10px;
+
+              &:hover,&:focus{
+                background: $theme-color;
+                color: $wcolor;
+              } 
+            } 
+          }
+        }
+      }
+      .p-price {
+        color: $theme-color;
+        font-size: 25px;
+        margin: 20px 0;
+      }
+      .quantity-btn{
+        margin-top: 20px;
+        margin-bottom: 15px;
+        .q-text{
+          color: #ababab;
+          float: left;
+          line-height: 30px;
+        }
+        .input-group{
+          width: 40%;
+          float: left;
+          margin: 0 15px;
+          z-index: 0;
+          span{
+            background: #f3f3f3;
+            border: 0;
+            @include border-radius(0);
+            color: #afaaaa;
+            cursor: pointer;
+            font-size: 20px;
+
+            &:hover{
+              background: #ddd;
+              color: $wcolor;
+              @include transition(all,0.4s,ease);
+            }
+          }
+          .form-control{
+            border: 0;
+            @include box-shadow(none);
+            text-align: center;
+
+            &:hover{
+              border: 1px solid #ddd;
+              @include transition(all,0.4s,ease);
+            }
+          }
+        }
+      }
+      .p-button{
+        a{padding: 10px 20px;}
+      }
+    }
+
+    .delivery-text{
+      background: #f9f9f9;
+
+      .delivery-option{
+        .del-header{
+          padding: 10px;
+          text-transform: capitalize;
+
+          p{margin-top: 5px;}
+        }
+        .del-body {
+          border-top: 1px solid #ddd;
+          padding: 10px;
+
+          ul>li{
+            padding: 5px 0;
+            i{vertical-align: middle;}
+          }
+        }
+      }
+    }
+  }
+
+  .product-description {
+    background: $wcolor;
+    @include box-shadow(0 0 2px #ddd);
+    margin: 10px 0;
+
+    .description-header{
+      background: #eaeaea;
+      padding: 15px;
+    }
+
+    .description-body{
+      padding: 15px;
+    }
+  }
+
+  .related-product{
+    .rp-header{padding: 10px 0;}
+  }
+}
+
+.zoomLens{
+  width:20px !important;
+  height:20px !important;
+}
+
+// ************************************
+
+// CSS For Tags Page
+
+
+// ************************************
+

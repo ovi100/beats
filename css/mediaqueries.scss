@@ -1,0 +1,343 @@
+$bcolor:#000;
+$wcolor:#fff;
+$gcolor:#808080;
+$grcolor:#41a30d;
+
+// Start Sass Mixins
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius; 
+}
+
+@mixin box-shadow($shadows...) {
+  -moz-box-shadow: $shadows;
+  -webkit-box-shadow: $shadows;
+  box-shadow: $shadows;
+}
+
+@mixin opacity($value){
+  $IEValue: $value*100;
+  opacity: $value;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity="+$IEValue+")";
+  filter: alpha(opacity=$IEValue);
+}
+
+@mixin placeholder {
+  &.placeholder { @content }
+  &:-moz-placeholder { @content }
+  &::-webkit-input-placeholder { @content }
+}
+
+@mixin transition($property,$time,$effect){
+  -webkit-transition: $property $time $effect;
+  -moz-transition: $property $time $effect;
+    -ms-transition: $property $time $effect;
+  -o-transition: $property $time $effect;
+    transition: $property $time $effect;
+}
+
+@mixin transform($transforms) {
+  -webkit-transform: $transforms;
+  -moz-transform: $transforms;
+  -o-transform: $transforms;
+  -ms-transform: $transforms;
+  transform: $transforms;
+}
+
+@mixin translate ($x,$y) {
+  @include transform(translate($x,$y));
+}
+
+// *********************************************
+
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+$elarge-desktop: '(max-width: 1920px)';
+$nlarge-desktop: '(max-width: 1440px)';
+
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+
+$normal-desktop: '(max-width: 1280px)';
+$normal-laptop: '(max-width: 1024px)';
+
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+$tablet-portrait: '(min-width: 768px) and (max-width: 1023px)';
+
+/* 
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+
+$tablet-landscape: '(min-width: 768px) and (max-width: 1024px) and (orientation: landscape)';
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+$phone-landscape: '(min-width: 481px) and (max-width: 767px)';
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+$phone-portrait: '(min-width: 320px) and (max-width: 480px)';
+
+
+@mixin respond-to($device){
+	@media only screen and #{$device} {
+		@content;
+	}
+}
+
+
+
+@include respond-to($phone-portrait){
+
+  // Common Style
+  
+  .header{
+    .action-bar{
+      height: 58px;
+      line-height: 58px;
+      text-align: center;
+      .logo{
+        img{margin: auto;}
+      }
+      .search-box{text-align: center;}
+      .vision-cart-icon{
+        a{
+          font-size: 20px;
+          
+        }
+      }
+    }
+  }
+  
+  .payment-social{
+    .payment-icon{
+      ul{
+        li{margin-bottom: 5px;}
+      }
+    }
+  }
+
+  // Index Page
+
+  .categories-hslider{
+    .homecategory{
+      display: none;
+    }
+
+    .carousel-fade{
+      .carousel-indicators{display: none;}
+    }
+  }
+  
+  .product-box{
+    .product-name{height: 60px;}
+    .product-button{display: none;}
+
+    &:hover{@include box-shadow(none);}
+  }
+
+  // Catalog Page
+  .catalog{
+    .catalog-filter{
+      position: fixed;
+      top: 0;
+      right: -230px;
+      width: 225px;
+      height: 100%;
+      background: $wcolor;
+      border-right: 1px solid #ddd;
+      overflow-y: auto;
+      padding: 0 10px;
+      @include transition(all,.4s,ease);
+      z-index: 12;
+
+      .filter-header{
+        padding: 10px;
+        text-align: right;
+      }
+    }
+    .catalog-sort{
+      border-top: 1px solid #ddd;
+      .product-info{text-align: center;}
+      .mbl-filter{
+        i{font-size: 20px;}
+      }
+    }
+  }
+
+  // Product Page
+  .product-details{
+    .product-info{
+      .product-text{padding: 0 5px;}
+    }
+  }
+
+}
+
+@include respond-to($phone-landscape){
+
+  // Common Style
+  .vision-header{
+    .vision-action-bar{
+      .vision-logo{
+        img{max-height: 40px;}
+      }
+    }
+  }
+  // Index Page
+
+  // About Page
+
+
+}
+
+@include respond-to($tablet-portrait){
+
+  // Common Style
+  .sidebar-wrapper{width: auto;}
+
+  .vision-header{
+    .vision-action-bar{
+      height: 65px;
+
+      .mobile-nav-icon{margin-top: -6px;}
+    }
+  }
+
+  .payment-social{
+    .payment-icon{
+      ul{
+        li{margin-bottom: 5px;}
+      }
+    }
+  }
+
+  // Index Page
+
+  .categories-hslider{
+    .homecategory{
+      display: none;
+    }
+
+    .carousel-fade{
+      .carousel-indicators{display: none;}
+    }
+  }
+
+  // Catalog Page
+  .catalog{
+    .catalog-filter{
+      position: fixed;
+      top: 0;
+      right: -230px;
+      width: 225px;
+      height: 100%;
+      background: $wcolor;
+      border-right: 1px solid #ddd;
+      overflow-y: auto;
+      padding: 0 10px;
+      @include transition(all,.4s,ease);
+      z-index: 12;
+
+      .filter-header{
+        padding: 10px;
+        text-align: right;
+      }
+    }
+    .catalog-sort{
+      border-top: 1px solid #ddd;
+      .product-info{text-align: left;}
+      .mbl-filter{
+        i{font-size: 20px;}
+      }
+    }
+  }
+
+  // Product Page
+  .product-details{
+    .product-info{
+      .product-text{padding: 5px;}
+    }
+  }
+  
+
+}
+
+
+@include respond-to($normal-laptop){
+
+  // Index Page
+  .categories-hslider{
+    .homecategory{
+      left: 0;
+      height: auto;
+      padding: 0;
+
+      ul{
+        li{
+          height: auto;
+          line-height: unset;
+        }
+      }
+    }
+  }
+  // About Page
+
+}
+
+@include respond-to($elarge-desktop){
+
+  // Index Page
+  .categories-hslider{
+    .homecategory{
+      top: 96px;
+      left: 387px;
+      height: 488px;
+
+      ul{
+        li{
+          height: 30px;
+          line-height: 30px;
+        }
+      }
+    }
+  }
+  // About Page
+
+}
+
+
+@include respond-to($nlarge-desktop){
+
+  // Index Page
+  .categories-hslider{
+    .homecategory{
+      left: 145px;
+      height: auto; 
+
+      ul{
+        li{height: 26px;}
+      }
+    }
+  }
+  // About Page
+
+}
+
