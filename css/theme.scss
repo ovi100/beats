@@ -143,8 +143,8 @@ $grcolor:#41a30d;
 html {overflow-x: hidden;}
 
 body {
-	background: #fff;
-  color: #333;
+	background: #f7f7f8;
+  color: #000;
   font-family:$theme-font;
 }
 
@@ -164,14 +164,18 @@ a{
 	}
 }
 
-.zoomIn:hover{
-	@include scale(1.2);
-	@include transition(all,0.8s,ease);
+.zoomIn{
+  @include scale(1);
+  @include transition(all,1s,ease);
+  &:hover{
+    @include scale(1.1);
+    @include transition(all,1s,ease);
+  }
 }
 
 .tbtn{
-  font-size: 13px;
-  padding: 5px 20px;
+  font-size: 15px;
+  padding: 7px 25px;
   text-align: center;
   text-transform: uppercase;
   vertical-align: middle;
@@ -195,14 +199,14 @@ a{
 
 .btn-outline{
 	background: transparent;
-  border: 1px solid #b5b5b5;
-  color: #757575;
+  border: 2px solid #ddd;
+  @include border-radius(30px);
+  color: $bcolor;
+  overflow: hidden;
   @include transition(all,0.4s,ease-in);
-
+  
   &:hover{
-  	background: #757575;
-  	border: 1px solid #b5b5b5;
-  	color: $wcolor !important;
+  	
   }
 }
 
@@ -221,6 +225,8 @@ input[type=number].input_noSpinners {
 
 .br-0{border-right: 0;}
 .bl-0{border-left: 0;}
+
+.fright{float: right;}
 
 
 // CSS For Header Section
@@ -417,16 +423,30 @@ input[type=number].input_noSpinners {
 }
 // ************************************
 
-// CSS For Feature Product Section
+// CSS For Collection Section
 
-.feature-product{
-  padding: 2% 0;
-  .fp-header{
-    color: #757575;
-    margin-bottom: 25px;
-    text-align: center;
+.collection{
+  .collection-box{
+    position: relative;
+    margin: 75px 0;
+    .ctext{
+      position: absolute;
+      top: 208px;
+      z-index: 5;
+      width: 35%;
+      background: #fff;
+      padding: 40px 50px;
+
+      .ct-button{
+        margin-top: 50px;
+      }
+    }
+    .cphoto{
+      position: relative;
+      width: 85%;
+      overflow: hidden;
+    }
   }
-  .row{margin-bottom: 10px;}
 }
 
 // ************************************
