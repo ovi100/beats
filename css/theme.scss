@@ -441,6 +441,7 @@ input[type=number].input_noSpinners {
         margin-top: 50px;
       }
     }
+    .ctext:nth-child(even){right: 0;}
     .cphoto{
       position: relative;
       width: 85%;
@@ -451,90 +452,109 @@ input[type=number].input_noSpinners {
 
 // ************************************
 
+.newsletter{
+  .container{
+    background: $wcolor;
+    margin-bottom: 75px;
+    padding: 10% 0;
+
+    .nl-header{
+      p{
+        color: $gcolor;
+        margin: 3% 0;
+      }
+    }
+    .nl-content{
+      width: 50%;
+      margin: auto;
+
+      .form-control{
+        background: transparent;
+        border: 1px solid #ddd;
+        border-right: 0;
+        @include border-radius-s(30px, 0, 0, 30px);
+        @include box-shadow(none);
+        color: $bcolor;
+
+        @include placeholder{
+          color: $bcolor;
+          font-size: 14px;
+        }
+      }
+      button{
+        background: transparent;
+        border-color: #ddd;
+        @include border-radius-s(0, 30px, 30px, 0);
+        @include box-shadow(none);
+        color: $bcolor;
+        font-size: 15px;
+        font-weight: 500;
+        text-transform: uppercase;
+      }
+    }
+  }
+}
+
 // CSS For Footer Section
 
-.vision-footer{
-  background: #2F3353;
-  color: $wcolor;
+.footer{
+  background: $wcolor;
   padding: 10px 0;
 
-  .quick-link{
+  h4{
+    color: $bcolor;
+    font-weight: 600;
+  }
+
+  .footer-link{
     a{
-      color: $wcolor;
+      color: $gcolor;
       text-transform: capitalize;
 
       &:hover{text-decoration: underline;}
     }
   }
+  .address{color: $gcolor;}
+  .social{
+    ul{
+      li{
+        display: inline-block;
+        margin-right: 10px;
 
-  .newsletter{
-    .form-control{
-      background: transparent;
-      border: 1px solid #fff;
-      border-right: 0;
-      @include border-radius(0);
-      @include box-shadow(none);
-      color: $wcolor;
-
-      @include placeholder{
-        color: $wcolor;
+        a{
+          color: $gcolor;
+          font-size: 20px;
+          @include transition(all,0.5s,ease);
+          &:hover{
+            color: $bcolor;
+          }
+        }
       }
     }
-    button{
-      background: transparent;
-      border-color: $wcolor;
-      border-left: 0;
-      @include border-radius(0);
-      @include box-shadow(none);
-      color: $wcolor;
+  }
+  .location{
+    margin-top: 25px;
+    span:nth-child(1){
+      color: $bcolor;
+      display: block;
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    span:nth-child(2){
+      color: $gcolor;
+      font-weight: 500;
+      text-transform: uppercase;
     }
   }
 }
 
-.payment-social{
-  .payment-icon{
-    ul{
-      li{
-        display: inline-block;
-        margin-right: 5px;
-      }
-    }
-  }
-  .social-icon{
-    ul{
-      li{
-        width: 35px;
-        height: 35px;
-        border-radius: 50%;
-        display: inline-block;
-        line-height: 35px;
-        margin-right: 5px;
-        text-align: center;
 
-        a{font-size: 18px;}
-      }
-
-      .fb{
-        border: 2px solid #3b5998;
-        a{color: #3b5998;}
-      }
-      .tw{
-        border: 2px solid #1da1f2;
-        a{color: #1da1f2;}
-      }
-      .ins{
-        border: 2px solid #e1306c;
-        a{color: #e1306c;}
-      }
-      .yt{
-        border: 2px solid #ff0000;
-        a{color: #ff0000;}
-      }
-    }
-  }
-}
 
 .copy-right{
+  background: $wcolor;
+  color: $gcolor;
+  font-size: 12px;
   padding: 10px 0;
   text-align: center;
 }
