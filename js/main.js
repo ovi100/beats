@@ -10,7 +10,8 @@ $(document).ready(function(){
 
 	if ($(window).width()<766){
      	$("body").click(function(e){
-  			$(".vision-top-link").fadeOut("fast");
+  			$(".store-search").fadeOut("fast");
+  			$(".custom-page").fadeOut("fast");
 		});
     } 
 
@@ -39,25 +40,21 @@ $(document).ready(function(){
 		}
   	);
 
-  	$(".mobile-nav-icon").click(function(e){
-		e.stopPropagation();
-	  	$(".sidebar-wrapper").animate({
-	    	left: 0
-	  	}, "fast");
-	});
 
-  	$(".sicon").click(function(){
+  	$(".sicon").click(function(e){
+  		e.stopPropagation();
 	  	$(".store-search").fadeIn("fast");
 	});
 
-	$(".scls-btn").click(function(){
+	$(".scls-btn").click(function(e){
+		e.stopPropagation();
 	  	$(".store-search").fadeOut("fast");
 	});
 	
 
-  	$(".mbls-icon").click(function(e){
+  	$(".cplink").click(function(e){
 		e.stopPropagation();
-	  	$(".mbl-search-box").fadeToggle("fast");
+	  	$(".custom-page").fadeToggle("fast");
 	});
 
 
