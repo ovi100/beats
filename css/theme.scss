@@ -234,46 +234,81 @@ input[type=number].input_noSpinners {
 .header{
   .action-bar{
     height: 72px;
-    background: $wcolor;
+    background: $bcolor;
     line-height: 50px;
     padding: 10px 0;
     text-align: right;
+
+    a{
+      color: $wcolor;
+      cursor: pointer;
+    }
 
     .navbar-nav{
       li{
         a{
           font-weight: 500;
           text-transform: uppercase;
+
+          i{font-size: 16px;}
+
           &:hover{
             background: transparent;
-            color: $bcolor;
+            color: $wcolor;
           }
         }
       }
     }
+
+    .has-dropdown{
+      position: static;
+
+      .dropdown-content{
+        background: #262626;
+        position: absolute;
+        top: 75px;
+        left: -95px;
+        right: 0;
+        width: 100%;
+        @include opacity(0.5);
+        padding: 15px 0;
+        @include transition(all,0.4s,ease);
+        visibility: hidden;
+        z-index: 5;
+
+        ul{
+          li{
+            line-height: 30px;
+            a{
+              color: $wcolor;
+              font-size: 13px;
+              font-weight: 400;
+              text-transform: capitalize;
+              @include transition(all,0.4s,ease);
+
+              &:hover{
+                color: $gcolor;
+                font-size: 14px;
+              }
+
+            }
+          }
+        }
+      }
+
+      &:hover{
+        .dropdown-content{
+          top: 62px;
+          @include opacity(1);
+          visibility: visible;
+        }
+      }
+    }
+
     .mobile-nav-icon{
       a{
         color: $bcolor;
         font-size: 20px;
-      }
-    }
-
-    .search-box{
-      .form-control{
-        height:45px;
-        background: #eaeaea;
-        @include box-shadow(none);
-        border: 1px solid #eaeaea;
-        @include border-radius(0);
-      }
-      button{
-        height: 45px;
-        background: $theme-color;
-        border: 1px solid $theme-color;
-        @include border-radius(0);
-        color: $wcolor;
-        margin-top: -5px;
-        padding: 6px 15px;
       }
     }
   }
@@ -285,11 +320,39 @@ input[type=number].input_noSpinners {
   left: 0;
   width: 100%;
   z-index: 10;
-  @include box-shadow(0 3px 2px #ddd);
+  @include box-shadow(0 1px 2px #ddd);
 }
 
-// CSS For Sidemenu
+// CSS For Store Search
 
+.store-search{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.81);
+  display: none;
+  z-index: 10;
+
+  .search-box{
+    margin-left: 7%;
+    padding: 11px 0;
+
+    .form-control{
+      background: $bcolor;
+      @include box-shadow(none);
+      border: 3px solid $gcolor;
+      @include border-radius(30px);
+    }
+    .scls-btn{
+      color: $wcolor;
+      cursor: pointer;
+      display: block;
+      font-size: 45px;
+      margin-top: -8px;
+    }
+  }
+}
 
 // ************************************
 
@@ -359,67 +422,27 @@ input[type=number].input_noSpinners {
 // CSS For Product Box Page
 .product-box{
   height: auto;
-  padding-bottom: 10px;
+  background: $wcolor;
+  padding: 35px;
+  text-align: center;
   .product-photo{margin-bottom: 15px;}
-  .product-tag{
-    position: absolute;
-    top: 5px;
-    left: 25px;
-    right: 25px;
-
-    span{
-      background: $theme-color;
-      color: $wcolor;
-      font-size: 11px;
-      padding: 2px 5px;
-      text-transform: uppercase;
-    }
-  }
   .product-name{
     height: 45px;
     padding: 0 8px;
 
     a{
-      color: #787a6c;
-      font-size: 13px;
-      @include transition(all,0.5s,ease);
-
-      &:hover{
-        color: $theme-color;
-      }
+      font-size: 15px;
+      text-transform: capitalize;
     }
   }
-  .product-price{
-    padding: 0 8px;
-
-    span{
-      color: $theme-color;
-      font-size: 18px;
-    }
-  }
-  .discount-price{
-    color: #757575;
-    font-size: 10px;
-    padding: 0 8px;
-  }
-  .product-rating{
-    margin: 8px 0;
-    padding: 0 8px;
-
-    i{color: #ffd700;}
+  .product-description{
+    margin-bottom: 25px;
+    text-align: left;
   }
   .product-button{
     padding: 0 8px;
-    visibility: hidden;
   }
 
-  &:hover{
-    @include box-shadow(0 0 2px #ddd);
-
-    .product-button{
-      visibility: visible;
-    }
-  }
 }
 // ************************************
 
@@ -446,6 +469,75 @@ input[type=number].input_noSpinners {
       position: relative;
       width: 85%;
       overflow: hidden;
+    }
+  }
+}
+
+// ************************************
+
+// CSS For Home Product Section
+
+.home-product{
+  margin-bottom: 75px;
+  .hp-header{text-transform: capitalize;}
+}
+
+// ************************************
+
+// CSS For Home Product Section
+
+.support-product{
+  margin-bottom: 75px;
+  .hs-header{
+    text-transform: capitalize;
+
+    p{
+      color: $gcolor;
+      margin-top: 20px;
+    }
+  }
+  .hs-content{
+    .container{
+        background: #fff;
+        padding: 15px 0;
+
+        .support-box{
+          text-align: center;
+          .icon{
+            width: 100px;
+            height: 100px;
+            background: $bcolor;
+            @include border-radius(50%);
+            line-height: 120px;
+            margin: auto;
+            text-align: center;
+
+            a{
+              color: #ed143d;
+
+              i{
+                font-size: 50px;
+                @include transition(all,1s,ease);
+              }
+            }
+
+            &:hover{
+              a{
+                i{
+                  font-size: 40px;
+                  @include transition(all,1s,ease);
+                }
+              }
+            }
+          }
+          .text{
+            margin-top: 10px;
+            a{
+              color: $gcolor;
+              text-transform: uppercase;
+            }
+          }
+        }
     }
   }
 }
@@ -550,7 +642,6 @@ input[type=number].input_noSpinners {
 }
 
 
-
 .copy-right{
   background: $wcolor;
   color: $gcolor;
@@ -563,79 +654,152 @@ input[type=number].input_noSpinners {
 
 // CSS For Catalog Page
 
+.catalog-header {
+  position: relative;
+
+  .text {
+    position: absolute;
+    bottom: 0;
+    width: 70%;
+    padding: 30px;
+
+    h2{text-transform: capitalize;}
+  }
+}
+
 .catalog{
   padding: 2% 0;
-  
-  .row{
-    .col-lg-2{padding-right: 0;}
-  }
-  .catalog-filter{
-    .filter{
-      border-bottom: 1px solid #ddd;
-      margin-top: 15px;
-      
-      .filter-name{
-        font-size: 15px;
-        text-transform: capitalize;
-      }
-      .filter-option{
-        max-height: 162px;
-        min-height: 50px;
-        overflow-y: auto;
-        overflow-x: hidden;
-        .checkbox{
-          label{color: #757575;}
-          
-        }
-
-        .form-inline{
-          margin-top: 5px;
-          .form-control{
-            width: 45%;
-            height: 30px;
-            border-radius: 3px;
-            box-shadow: none;
-          }
-        }
-
-        .col-xs-3{padding-left: 0;}
-
-        button{
-          font-size: 20px;
-          margin-top: 5px;
-          padding: 0px 8px;
-        }
-      }
-    }
-  }
-
+  .row{margin-bottom: 20px;}
   .catalog-sort{
     border-bottom: 1px solid #ddd;
     margin-bottom: 20px;
-    padding: 15px 0;
 
     .sort-option{
-      .dropdown{
-        button{
-          @include border-radius(0);
-          &:hover{background: $wcolor;}
-        }
-        .dropdown-menu{
-          left: -23px;
-          @include border-radius(0);
-        }
+      .form-control{
+        @include border-radius(0);
+        @include box-shadow(none);
       }
     }
-  }
-  .catalog-product{
-    .row{margin-bottom: 10px;}
   }
 }
 
 // ************************************
 
 
+// CSS For Product Page
+.product-details{
+  background: $wcolor;
+  margin: 15px 0;
+  padding: 10px 0;
+  .product-info{    
+    #zoomControl{
+      padding: 10px 0;
+      img{display: inline-block;}
+    }
+
+    .product-text{
+      h3{text-transform: capitalize;}     
+      .variant-list{
+        margin: 15px 0;
+        padding: 5px 0;
+        label{
+          font-weight: 400;
+          margin-bottom: 15px;
+          text-transform: capitalize;
+        }
+        ul{
+          li{
+            display: inline-block;
+            margin-right: 7px;
+            
+            a{
+
+              width: 50px;
+              height: 50px;
+              border: 1px solid $theme-color;
+              @include border-radius(50%);
+              color: $bcolor;
+              display: inline-block;
+              line-height: 50px;
+              text-align: center;
+              @include transition(all,0.5s,ease);
+
+              &:hover,&:focus{
+                background: $theme-color;
+                color: $wcolor;
+              } 
+            } 
+          }
+        }
+      }
+      .p-price {
+        color: $theme-color;
+        font-size: 25px;
+        margin: 20px 0;
+      }
+      .quantity-btn{
+        margin-top: 20px;
+        margin-bottom: 15px;
+        .q-text{
+          color: #ababab;
+          float: left;
+          line-height: 30px;
+        }
+        .input-group{
+          width: 40%;
+          float: left;
+          margin: 0 15px;
+          z-index: 0;
+          span{
+            background: #f3f3f3;
+            border: 0;
+            @include border-radius(0);
+            color: #afaaaa;
+            cursor: pointer;
+            font-size: 20px;
+
+            &:hover{
+              background: #ddd;
+              color: $wcolor;
+              @include transition(all,0.4s,ease);
+            }
+          }
+          .form-control{
+            border: 0;
+            @include box-shadow(none);
+            text-align: center;
+
+            &:hover{
+              border: 1px solid #ddd;
+              @include transition(all,0.4s,ease);
+            }
+          }
+        }
+      }
+      .p-button{
+        a{padding: 10px 20px;}
+      }
+    }
+  }
+  
+  .product-description {
+    margin: 15px 0;
+  }
+
+  .related-product{
+    .rp-header{padding: 10px 0;}
+  }
+}
+
+.zoomLens{
+  width:20px !important;
+  height:20px !important;
+}
+
+// ************************************
+
 // CSS For Cart Page
+
 .cart{
   background: #f7f7f7;
   .cart-header{
@@ -724,163 +888,6 @@ input[type=number].input_noSpinners {
       a{padding: 10px 20px;}
     }
   }
-}
-
-// ************************************
-
-// CSS For Product Page
-.product-details{
-  background: #EEF0F4;
-  padding: 10px 0;
-  .breadcrumb{
-    background: transparent;
-
-    li + li:before {
-      padding: 0 5px;
-      color: #ccc;
-      content: "\eab8";
-      font-family: IcoFont;
-    }
-  }
-  .product-info{
-    background: $wcolor;
-    @include box-shadow(0 0 2px #ddd);
-
-    .product-text{
-      .p-name{margin-bottom: 0;}
-      .share-option{
-        border-bottom: 1px solid #ddd;
-        padding: 10px 0;
-        i{
-          color: #ffd700;
-          font-size: 10px;
-        }
-
-        .rating{
-          color: #0cbdbd;
-          font-size: 10px;
-        }
-
-        a{
-          color: #ababab;
-          padding: 0 5px;
-        }
-      }
-      .variant-list{
-        padding: 5px 0;
-        ul{
-          li{
-            display: inline-block;
-            margin-right: 7px;
-            
-            a{
-              border: 1px solid $theme-color;
-              color: $bcolor;
-              padding: 4px 10px;
-
-              &:hover,&:focus{
-                background: $theme-color;
-                color: $wcolor;
-              } 
-            } 
-          }
-        }
-      }
-      .p-price {
-        color: $theme-color;
-        font-size: 25px;
-        margin: 20px 0;
-      }
-      .quantity-btn{
-        margin-top: 20px;
-        margin-bottom: 15px;
-        .q-text{
-          color: #ababab;
-          float: left;
-          line-height: 30px;
-        }
-        .input-group{
-          width: 40%;
-          float: left;
-          margin: 0 15px;
-          z-index: 0;
-          span{
-            background: #f3f3f3;
-            border: 0;
-            @include border-radius(0);
-            color: #afaaaa;
-            cursor: pointer;
-            font-size: 20px;
-
-            &:hover{
-              background: #ddd;
-              color: $wcolor;
-              @include transition(all,0.4s,ease);
-            }
-          }
-          .form-control{
-            border: 0;
-            @include box-shadow(none);
-            text-align: center;
-
-            &:hover{
-              border: 1px solid #ddd;
-              @include transition(all,0.4s,ease);
-            }
-          }
-        }
-      }
-      .p-button{
-        a{padding: 10px 20px;}
-      }
-    }
-
-    .delivery-text{
-      background: #f9f9f9;
-
-      .delivery-option{
-        .del-header{
-          padding: 10px;
-          text-transform: capitalize;
-
-          p{margin-top: 5px;}
-        }
-        .del-body {
-          border-top: 1px solid #ddd;
-          padding: 10px;
-
-          ul>li{
-            padding: 5px 0;
-            i{vertical-align: middle;}
-          }
-        }
-      }
-    }
-  }
-
-  .product-description {
-    background: $wcolor;
-    @include box-shadow(0 0 2px #ddd);
-    margin: 10px 0;
-
-    .description-header{
-      background: #eaeaea;
-      padding: 15px;
-    }
-
-    .description-body{
-      padding: 15px;
-    }
-  }
-
-  .related-product{
-    .rp-header{padding: 10px 0;}
-  }
-}
-
-.zoomLens{
-  width:20px !important;
-  height:20px !important;
 }
 
 // ************************************

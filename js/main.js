@@ -26,6 +26,19 @@ $(document).ready(function(){
 	    }
   	});
 
+	// Menu Hover Icon Change
+  	
+  	$(".has-dropdown").hover(
+  		function(){
+    		$("i").removeClass("icofont-thin-down").addClass("icofont-thin-up");
+    		// $(".dropdown-content").fadeIn('slow');
+    	}, 
+    	function(){
+		    $("i").removeClass("icofont-thin-up").addClass("icofont-thin-down");
+		    // $(".dropdown-content").fadeOut('slow');
+		}
+  	);
+
   	$(".mobile-nav-icon").click(function(e){
 		e.stopPropagation();
 	  	$(".sidebar-wrapper").animate({
@@ -33,78 +46,21 @@ $(document).ready(function(){
 	  	}, "fast");
 	});
 
-  	$(".closetbn").click(function(){
-	  	$(".sidebar-wrapper").animate({
-	    	left: "-500px"
-	  	}, "fast");
+  	$(".sicon").click(function(){
+	  	$(".store-search").fadeIn("fast");
 	});
+
+	$(".scls-btn").click(function(){
+	  	$(".store-search").fadeOut("fast");
+	});
+	
 
   	$(".mbls-icon").click(function(e){
 		e.stopPropagation();
 	  	$(".mbl-search-box").fadeToggle("fast");
 	});
 
-	$(".mbls-close").click(function(e){
-		e.stopPropagation();
-	  	$(".mbl-search-box").fadeOut("fast");
-	});
 
-  	$(".mbl-top-link").click(function(e){
-		e.stopPropagation();
-	  	$(".vision-top-link").fadeToggle("fast");
-	});
-
-
-	$(".mbl-filter").click(function(e){
-		e.stopPropagation();
-	  	$(".catalog-filter").animate({
-	    	right: 0
-	  	}, "fast");
-	});
-
-  	$(".filter-closetbn").click(function(){
-	  	$(".catalog-filter").animate({
-	    	right: "-230px"
-	  	}, "fast");
-	});
-
-
-  	// if ($(window).width()<768){
-   //    $('.col-logo').addClass('order-12');
-   //    $('.col-icon').addClass('order-1');
-      
-   //  } 
-   //  else {
-   //    $('.col-logo').removeClass('order-12');
-   //    $('.col-icon').removeClass('order-1');
-   //  }
-
-
-   // Start Home Slider Js
-
- //    $('#main-slider').owlCarousel({
- //    	// autoplay:true,
- //    	autoplayHoverPause:true,
- //    	dots:true,
- //    	items:1,
- //    	loop:true,
-	//     nav:false,
-	//     responsive:{
-	//         0:{
-	//             items:1
-	//         },
-	//         600:{
-	//             items:1
-	//         },
-	//         768:{
-	//             items:1
-	//         }
-	//     },
-	//     slideBy:1,
-	//     smartSpeed:1800
-	// })
-
-    // End Home Slider Js
 
     $('.btn-qty').on('click',function(e){
     	e.preventDefault();
@@ -121,8 +77,10 @@ $(document).ready(function(){
         button.parent().find("input").val(newVal);
     });
 
-    $('#zoom_01').elevateZoom({
-		cursor: "default",
+    $('#pzoom').elevateZoom({
+		zoomType: "inner",
+  		cursor: "crosshair",
+  		gallery: "zoomControl",
 		borderSize: 1,
 		responsive: true,
 		zoomLens: false,
