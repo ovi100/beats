@@ -4,14 +4,14 @@ $gcolor:#808080;
 $grcolor:#41a30d;
 
 // Start Sass Mixins
-@mixin border-radius($radius) {
+@mixin border-radius($radius){
   -webkit-border-radius: $radius;
   -moz-border-radius: $radius;
   -ms-border-radius: $radius;
   border-radius: $radius; 
 }
 
-@mixin box-shadow($shadows...) {
+@mixin box-shadow($shadows...){
   -moz-box-shadow: $shadows;
   -webkit-box-shadow: $shadows;
   box-shadow: $shadows;
@@ -72,21 +72,15 @@ $normal-laptop: '(max-width: 1024px)';
   ##Screen = B/w 768px to 1024px
 */
 
-$tablet-portrait: '(min-width: 768px) and (max-width: 1023px)';
+$tablet-portrait: '(min-width: 769px) and (max-width: 1024px)';
 
-/* 
-  ##Device = Tablets, Ipads (landscape)
-  ##Screen = B/w 768px to 1024px
-*/
-
-$tablet-landscape: '(min-width: 768px) and (max-width: 1024px) and (orientation: landscape)';
 
 /* 
   ##Device = Low Resolution Tablets, Mobiles (Landscape)
   ##Screen = B/w 481px to 767px
 */
 
-$phone-landscape: '(min-width: 481px) and (max-width: 767px)';
+$phone-landscape: '(min-width: 481px) and (max-width: 768px)';
 
 /* 
   ##Device = Most of the Smartphones Mobiles (Portrait)
@@ -107,50 +101,96 @@ $phone-portrait: '(min-width: 320px) and (max-width: 480px)';
 @include respond-to($phone-portrait){
 
   // Common Style
-  
+  body{overflow-x: hidden;}
+
   .header{
     .action-bar{
-      height: 58px;
-      line-height: 58px;
+      height: 70px;
+      line-height: 50px;
       text-align: center;
       .logo{
         img{margin: auto;}
       }
-      .search-box{text-align: center;}
-      .vision-cart-icon{
-        a{
-          font-size: 20px;
-          
+    }
+  }
+
+  .custom-page{
+    .page-link{
+      ul{
+        width: 100%;
+        li{
+          margin-top: 5px;
+          a{font-size: 20px;}
         }
       }
     }
   }
   
-  .payment-social{
-    .payment-icon{
-      ul{
-        li{margin-bottom: 5px;}
+  .store-search{
+    .search-box{
+      margin-left: 0;
+      .scls-btn{
+        font-size: 35px;
+        margin-top: 0;
       }
     }
   }
 
-  // Index Page
-
-  .categories-hslider{
-    .homecategory{
-      display: none;
-    }
-
-    .carousel-fade{
-      .carousel-indicators{display: none;}
+  .newsletter{
+    .container{
+      .nl-header{
+        p{padding: 0 10px;}
+      }
+      .nl-content{width: 95%;}
     }
   }
-  
+
+  .footer{
+    .social{
+      text-align: center;
+      ul{
+        li{margin-right: 30px;}
+      }
+    }
+    .location{
+      span:nth-child(1){display: inline-block;}
+      span:nth-child(2){float: right;}
+    }
+  }
+
+  // Index Page
+  .collection{
+    .collection-box{
+      position: unset;
+      margin: 25px 0;
+
+      .cphoto{
+        position: unset;
+        width: 100%;
+        float: none;
+      }
+      .ctext{
+        position: unset;
+        width: 100%;
+        padding: 20px 25px;
+
+        .ct-button{margin-top: 30px;}
+      }
+    }
+  }
   .product-box{
+    margin-bottom: 15px;
     .product-name{height: 60px;}
-    .product-button{display: none;}
 
     &:hover{@include box-shadow(none);}
+  }
+
+  .support-product{
+    .hs-content{
+      .container{
+        .support-box{margin-bottom: 20px;}
+      }
+    }
   }
 
   // Catalog Page
@@ -194,13 +234,7 @@ $phone-portrait: '(min-width: 320px) and (max-width: 480px)';
 @include respond-to($phone-landscape){
 
   // Common Style
-  .vision-header{
-    .vision-action-bar{
-      .vision-logo{
-        img{max-height: 40px;}
-      }
-    }
-  }
+  
   // Index Page
 
   // About Page

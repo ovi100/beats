@@ -80,19 +80,48 @@ a {
     filter: alpha(opacity=80); }
 
 .btn-outline {
+  width: 145px;
+  height: 37px;
   background: transparent;
-  border: 2px solid #ddd;
+  border: 2px solid #000;
+  display: inline-block;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 7px 25px;
+  text-align: center;
+  text-transform: uppercase;
+  vertical-align: middle;
   -webkit-border-radius: 30px;
   -moz-border-radius: 30px;
   -ms-border-radius: 30px;
   border-radius: 30px;
   color: #000;
   overflow: hidden;
-  -webkit-transition: all 0.4s ease-in;
-  -moz-transition: all 0.4s ease-in;
-  -ms-transition: all 0.4s ease-in;
-  -o-transition: all 0.4s ease-in;
-  transition: all 0.4s ease-in; }
+  position: relative;
+  -webkit-transition: all 0.3s ease-in;
+  -moz-transition: all 0.3s ease-in;
+  -ms-transition: all 0.3s ease-in;
+  -o-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+  z-index: 1; }
+  .btn-outline:before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    background: #000;
+    position: absolute;
+    top: 35px;
+    left: 0;
+    -webkit-transition: all 0.3s ease-in;
+    -moz-transition: all 0.3s ease-in;
+    -ms-transition: all 0.3s ease-in;
+    -o-transition: all 0.3s ease-in;
+    transition: all 0.3s ease-in;
+    z-index: -1; }
+  .btn-outline:hover {
+    color: #fff; }
+    .btn-outline:hover:before {
+      top: 0; }
 
 .tcolor {
   color: #FF6C37 !important; }
@@ -190,30 +219,40 @@ input[type=number].input_noSpinners {
 
 .custom-page {
   position: fixed;
-  top: 72px;
+  top: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.81);
+  background: rgba(0, 0, 0, 0.9);
   display: none;
+  padding: 55px 0;
   text-align: center;
   z-index: 10; }
-  .custom-page ul {
-    width: 20%;
-    margin: auto; }
-    .custom-page ul li {
-      margin-top: 45px;
-      padding: 15px 0;
-      -webkit-transition: all 0.4s ease;
-      -moz-transition: all 0.4s ease;
-      -ms-transition: all 0.4s ease;
-      -o-transition: all 0.4s ease;
-      transition: all 0.4s ease; }
-      .custom-page ul li:hover {
-        background: rgba(0, 0, 0, 0.3); }
-      .custom-page ul li a {
-        color: #fff;
-        font-size: 30px;
-        text-transform: capitalize; }
+  .custom-page .cpcls-btn {
+    color: #fff;
+    cursor: pointer;
+    font-size: 35px;
+    position: relative;
+    top: -45px;
+    right: 40px; }
+  .custom-page .page-link {
+    overflow-y: auto; }
+    .custom-page .page-link ul {
+      width: 20%;
+      margin: auto; }
+      .custom-page .page-link ul li {
+        margin-top: 10px;
+        padding: 15px 0;
+        -webkit-transition: all 0.4s ease;
+        -moz-transition: all 0.4s ease;
+        -ms-transition: all 0.4s ease;
+        -o-transition: all 0.4s ease;
+        transition: all 0.4s ease; }
+        .custom-page .page-link ul li:hover {
+          background: rgba(0, 0, 0, 0.3); }
+        .custom-page .page-link ul li a {
+          color: #fff;
+          font-size: 30px;
+          text-transform: capitalize; }
 
 .store-search {
   position: fixed;
@@ -317,6 +356,8 @@ input[type=number].input_noSpinners {
     width: 35%;
     background: #fff;
     padding: 40px 50px; }
+    .collection .collection-box .ctext h3 {
+      text-transform: capitalize; }
     .collection .collection-box .ctext .ct-button {
       margin-top: 50px; }
   .collection .collection-box .ctext:nth-child(even) {

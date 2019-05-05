@@ -50,14 +50,17 @@ $(document).ready(function(){
 		e.stopPropagation();
 	  	$(".store-search").fadeOut("fast");
 	});
-	
+
 
   	$(".cplink").click(function(e){
 		e.stopPropagation();
 	  	$(".custom-page").fadeToggle("fast");
 	});
 
-
+  	$(".cpcls-btn").click(function(e){
+		e.stopPropagation();
+	  	$(".custom-page").fadeOut("fast");
+	});
 
     $('.btn-qty').on('click',function(e){
     	e.preventDefault();
