@@ -1,6 +1,6 @@
  /*------------------------------------
  *Author:MD ABU SAYED
- *Template:Vision Optics
+ *Template:Radner
  *Version:1.0
  *-------------------------------------
  */
@@ -11,12 +11,11 @@ $(document).ready(function(){
 	if ($(window).width()<766){
      	$("body").click(function(e){
   			$(".store-search").fadeOut("fast");
-  			$(".custom-page").fadeOut("fast");
 		});
     } 
 
 	
-
+    // Menu Scrolling Effect
 	$(window).scroll(function(){
 	    if ($(this).scrollTop()>150){
 	      $('.action-bar').addClass('fixed-nav');
@@ -28,7 +27,6 @@ $(document).ready(function(){
   	});
 
 	// Menu Hover Icon Change
-  	
   	$(".has-dropdown").hover(
   		function(){
     		$("i").removeClass("icofont-thin-down").addClass("icofont-thin-up");

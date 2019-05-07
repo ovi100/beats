@@ -196,29 +196,10 @@ $phone-portrait: '(min-width: 320px) and (max-width: 480px)';
     .text{width: 100%;}
   }
   .catalog{
-    .catalog-filter{
-      position: fixed;
-      top: 0;
-      right: -230px;
-      width: 225px;
-      height: 100%;
-      background: $wcolor;
-      border-right: 1px solid #ddd;
-      overflow-y: auto;
-      padding: 0 10px;
-      @include transition(all,.4s,ease);
-      z-index: 12;
-
-      .filter-header{
-        padding: 10px;
-        text-align: right;
-      }
-    }
     .catalog-sort{
-      border-top: 1px solid #ddd;
       .product-info{text-align: center;}
-      .mbl-filter{
-        i{font-size: 20px;}
+      .sort-option{
+        .form-group{margin-bottom: 0;}
       }
     }
   }
@@ -280,6 +261,19 @@ $phone-portrait: '(min-width: 320px) and (max-width: 480px)';
     .hs-content{
       .container{
         .support-box{margin-bottom: 20px;}
+      }
+    }
+  }
+
+  // Catalog Page
+  .catalog-header{
+    .text{width: 100%;}
+  }
+  .catalog{
+    .catalog-sort{
+      .product-info{text-align: center;}
+      .sort-option{
+        .form-group{margin-bottom: 0;}
       }
     }
   }
